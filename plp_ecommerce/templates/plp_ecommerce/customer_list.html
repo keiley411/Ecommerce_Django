@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Customer List</title>
+</head>
+
+<body>
+    <h1>Customer List</h1>
+    <ul>
+        {% for customer in customers %}
+        <li>
+            <a href="{% url 'plp_ecommerce:customer_detail' customer.pk %}">
+                {{ customer.first_name }} {{ customer.last_name }} ({{ customer.email }})
+            </a>
+        </li>
+
+
+        {% endfor %}
+    </ul>
+<a href="{% url 'plp_ecommerce:customer_detail' %} "class="back-link">Add Customers</a>
+
+</body>
+
+</html>
